@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -70,15 +72,25 @@
 
 </div>
 
+
 <div class="card">
 
 <h2>✨ Extras y Decoraciones:</h2>
 
+<!-- PIEDRAS / CRISTALES -->
+
 <div class="service">
-<input type="checkbox" data-price="15">
 <span>💎 Piedras / Cristales (por uña)</span>
-<span class="price">+$15</span>
+
+<div class="counter">
+<button onclick="decreaseCrystals()">-</button>
+<span id="crystalCount">0</span>
+<button onclick="increaseCrystals()">+</button>
 </div>
+
+<span class="price" id="crystalPrice">$0</span>
+</div>
+
 
 <div class="service">
 <input type="checkbox" data-price="15">
@@ -104,11 +116,21 @@
 <span class="price">+$60</span>
 </div>
 
+
+<!-- NAIL ART -->
+
 <div class="service">
-<input type="checkbox" data-price="30">
 <span>🖌 Nail Art (por uña)</span>
-<span class="price">+$30</span>
+
+<div class="counter">
+<button onclick="decreaseNails()">-</button>
+<span id="nailCount">0</span>
+<button onclick="increaseNails()">+</button>
 </div>
+
+<span class="price" id="nailPrice">$0</span>
+</div>
+
 
 <div class="service">
 <input type="checkbox" data-price="50">
@@ -117,6 +139,7 @@
 </div>
 
 </div>
+
 
 <div class="total-box">
 
