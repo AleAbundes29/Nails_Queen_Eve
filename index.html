@@ -20,125 +20,222 @@
 <h1 class="title">⭐ Nail's Queen Eve ⭐</h1>
 <p class="subtitle">CALCULADORA DE SERVICIOS</p>
 
+
 <div class="card-title">
-💅 Técnica Uñas Acrílicas 💅
+💅 Servicios Principales 💅
 </div>
+
 
 <div class="card">
 
-<h2>Selecciona tus servicios:</h2>
-
 <div class="service">
-<input type="checkbox" data-price="300">
-<span>💎 Full Set (Juego Completo)</span>
-<span class="price">$300</span>
+<input type="checkbox" data-price="280">
+<span>🧴 Aplicación de Rubber y Baño de Acrílico</span>
+<span class="price">$280</span>
 </div>
 
-<div class="service">
-<input type="checkbox" data-price="200">
-<span>🔄 Relleno</span>
-<span class="price">$200</span>
-</div>
+<p class="info">
+Incluye 1 color, glitter o color extra en 2 uñas
+</p>
 
-<div class="service">
-<input type="checkbox" data-price="100">
-<span>✂️ Retiro de Acrílico</span>
-<span class="price">$100</span>
-</div>
-
-<div class="service">
-<input type="checkbox" data-price="100">
-<span>💅 Gel Semipermanente</span>
-<span class="price">$100</span>
-</div>
 
 <div class="service">
 <input type="checkbox" data-price="150">
-<span>🎨 Gel Semi con tono</span>
+<span>💅 Gel Semipermanente</span>
 <span class="price">$150</span>
 </div>
 
-<div class="service">
-<input type="checkbox" data-price="200">
-<span>🧴 Rubber</span>
-<span class="price">$200</span>
 </div>
 
-<div class="service">
-<input type="checkbox" data-price="250">
-<span>✨ Rubber con tono</span>
-<span class="price">$250</span>
-</div>
-
-</div>
 
 
 <div class="card">
 
-<h2>✨ Extras y Decoraciones:</h2>
+<h2>✨ Efectos (precio por uña)</h2>
 
-<!-- PIEDRAS / CRISTALES -->
 
 <div class="service">
-<span>💎 Piedras / Cristales (por uña)</span>
+
+<span>🪞 Espejo</span>
 
 <div class="counter">
-<button onclick="decreaseCrystals()">-</button>
-<span id="crystalCount">0</span>
-<button onclick="increaseCrystals()">+</button>
+<button onclick="decrease('espejo')">-</button>
+<span id="espejoCount">0</span>
+<button onclick="increase('espejo')">+</button>
 </div>
 
-<span class="price" id="crystalPrice">$0</span>
+<span class="price" id="espejoPrice">$0</span>
+
 </div>
 
 
 <div class="service">
-<input type="checkbox" data-price="15">
-<span>✨ Foil Decorativo</span>
-<span class="price">+$15</span>
-</div>
 
-<div class="service">
-<input type="checkbox" data-price="30">
-<span>🪞 Efecto Chrome / Espejo</span>
-<span class="price">+$30</span>
-</div>
-
-<div class="service">
-<input type="checkbox" data-price="40">
-<span>🐱 Efecto Ojo de Gato</span>
-<span class="price">+$40</span>
-</div>
-
-<div class="service">
-<input type="checkbox" data-price="60">
-<span>🎨 Stamping (diseño)</span>
-<span class="price">+$60</span>
-</div>
-
-
-<!-- NAIL ART -->
-
-<div class="service">
-<span>🖌 Nail Art (por uña)</span>
+<span>🌈 Aurora</span>
 
 <div class="counter">
-<button onclick="decreaseNails()">-</button>
-<span id="nailCount">0</span>
-<button onclick="increaseNails()">+</button>
+<button onclick="decrease('aurora')">-</button>
+<span id="auroraCount">0</span>
+<button onclick="increase('aurora')">+</button>
 </div>
 
-<span class="price" id="nailPrice">$0</span>
+<span class="price" id="auroraPrice">$0</span>
+
 </div>
 
 
 <div class="service">
-<input type="checkbox" data-price="25">
-<span>⭐ Glitter / Brillos</span>
-<span class="price">+$25</span>
+
+<span>🍬 Azúcar</span>
+
+<div class="counter">
+<button onclick="decrease('azucar')">-</button>
+<span id="azucarCount">0</span>
+<button onclick="increase('azucar')">+</button>
 </div>
 
+<span class="price" id="azucarPrice">$0</span>
+
 </div>
+
+
+<div class="service">
+
+<span>🦄 Unicornio</span>
+
+<div class="counter">
+<button onclick="decrease('unicornio')">-</button>
+<span id="unicornioCount">0</span>
+<button onclick="increase('unicornio')">+</button>
+</div>
+
+<span class="price" id="unicornioPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🐱 Ojo de gato 2D</span>
+
+<div class="counter">
+<button onclick="decrease('gato2d')">-</button>
+<span id="gato2dCount">0</span>
+<button onclick="increase('gato2d')">+</button>
+</div>
+
+<span class="price" id="gato2dPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🐱 Ojo de gato 9D</span>
+
+<div class="counter">
+<button onclick="decrease('gato9d')">-</button>
+<span id="gato9dCount">0</span>
+<button onclick="increase('gato9d')">+</button>
+</div>
+
+<span class="price" id="gato9dPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🧶 Suéter</span>
+
+<div class="counter">
+<button onclick="decrease('sueter')">-</button>
+<span id="sueterCount">0</span>
+<button onclick="increase('sueter')">+</button>
+</div>
+
+<span class="price" id="sueterPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🪶 Terciopelo</span>
+
+<div class="counter">
+<button onclick="decrease('terciopelo')">-</button>
+<span id="terciopeloCount">0</span>
+<button onclick="increase('terciopelo')">+</button>
+</div>
+
+<span class="price" id="terciopeloPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🐊 Cocodrilo</span>
+
+<div class="counter">
+<button onclick="decrease('cocodrilo')">-</button>
+<span id="cocodriloCount">0</span>
+<button onclick="increase('cocodrilo')">+</button>
+</div>
+
+<span class="price" id="cocodriloPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>✨ Glow</span>
+
+<div class="counter">
+<button onclick="decrease('glow')">-</button>
+<span id="glowCount">0</span>
+<button onclick="increase('glow')">+</button>
+</div>
+
+<span class="price" id="glowPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🪨 Mármol</span>
+
+<div class="counter">
+<button onclick="decrease('marmol')">-</button>
+<span id="marmolCount">0</span>
+<button onclick="increase('marmol')">+</button>
+</div>
+
+<span class="price" id="marmolPrice">$0</span>
+
+</div>
+
+
+<div class="service">
+
+<span>🎨 Mano alzada (dependiendo el diseño)</span>
+
+<div class="counter">
+<button onclick="decrease('mano')">-</button>
+<span id="manoCount">0</span>
+<button onclick="increase('mano')">+</button>
+</div>
+
+<span class="price" id="manoPrice">$0</span>
+
+</div>
+
+
+</div>
+
 
 
 <div class="total-box">

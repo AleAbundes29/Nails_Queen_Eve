@@ -1,118 +1,105 @@
-const checkboxes = document.querySelectorAll("input[type=checkbox]")
+const prices = {
+
+espejo:30,
+aurora:25,
+azucar:20,
+unicornio:30,
+gato2d:25,
+gato9d:35,
+sueter:20,
+terciopelo:25,
+cocodrilo:30,
+glow:35,
+marmol:35,
+mano:60
+
+}
+
+let counts = {}
+
+Object.keys(prices).forEach(key=>{
+counts[key]=0
+})
+
 const totalElement = document.getElementById("total")
-const countElement = document.getElementById("count")
 
-let nailCount = 0
-let crystalCount = 0
+function increase(type){
 
-const nailPrice = 30
-const crystalPrice = 15
+if(counts[type] < 10){
 
-checkboxes.forEach(box => {
+counts[type]++
+update(type)
 
-box.addEventListener("change", calcular)
+}
+
+}
+
+function decrease(type){
+
+if(counts[type] > 0){
+
+counts[type]--
+update(type)
+
+}
+
+}
+
+function update(type){
+
+document.getElementById(type+"Count").textContent = counts[type]
+
+let subtotal = counts[type] * prices[type]
+
+document.getElementById(type+"Price").textContent = "$"+subtotal
+
+calculateTotal()
+
+}
+
+function calculateTotal(){
+
+let total = 0
+
+Object.keys(prices).forEach(type=>{
+
+total += counts[type] * prices[type]
 
 })
 
-function calcular(){
-
-let total = 0
-let count = 0
-
-checkboxes.forEach(box => {
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
 
 if(box.checked){
 
 total += Number(box.dataset.price)
-count++
 
 }
 
 })
 
-total += nailCount * nailPrice
-total += crystalCount * crystalPrice
-
-totalElement.textContent = "$" + total
-countElement.textContent = count + " servicios seleccionados"
+totalElement.textContent = "$"+total
 
 }
 
-function increaseNails(){
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
 
-if(nailCount < 10){
+box.addEventListener("change",calculateTotal)
 
-nailCount++
-updateNails()
-
-}
-
-}
-
-function decreaseNails(){
-
-if(nailCount > 0){
-
-nailCount--
-updateNails()
-
-}
-
-}
-
-function updateNails(){
-
-document.getElementById("nailCount").textContent = nailCount
-document.getElementById("nailPrice").textContent = "$" + (nailCount * nailPrice)
-
-calcular()
-
-}
-
-function increaseCrystals(){
-
-if(crystalCount < 10){
-
-crystalCount++
-updateCrystals()
-
-}
-
-}
-
-function decreaseCrystals(){
-
-if(crystalCount > 0){
-
-crystalCount--
-updateCrystals()
-
-}
-
-}
-
-function updateCrystals(){
-
-document.getElementById("crystalCount").textContent = crystalCount
-document.getElementById("crystalPrice").textContent = "$" + (crystalCount * crystalPrice)
-
-calcular()
-
-}
+})
 
 function resetServices(){
 
-checkboxes.forEach(box => box.checked = false)
+Object.keys(prices).forEach(type=>{
 
-nailCount = 0
-crystalCount = 0
+counts[type]=0
 
-document.getElementById("nailCount").textContent = 0
-document.getElementById("crystalPrice").textContent = "$0"
-document.getElementById("crystalCount").textContent = 0
-document.getElementById("nailPrice").textContent = "$0"
+document.getElementById(type+"Count").textContent=0
+document.getElementById(type+"Price").textContent="$0"
 
-totalElement.textContent = "$0"
-countElement.textContent = "0 servicios seleccionados"
+})
+
+document.querySelectorAll("input[type=checkbox]").forEach(box=>box.checked=false)
+
+totalElement.textContent="$0"
 
 }
