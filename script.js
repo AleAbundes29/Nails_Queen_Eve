@@ -1,132 +1,145 @@
-const preciosAcrilico = {
+let total = 0;
 
-tip:{
+const preciosTip = {
 1:200,2:250,3:300,4:350,5:400,6:450,7:500,8:550,9:600,10:650,11:700,12:750,13:800
-},
+};
 
-escultura:{
+const preciosEscultura = {
 1:250,2:300,3:350,4:400,5:450,6:500,7:550,8:600,9:650,10:700,11:750,12:800,13:850
-}
+};
+
+function toggleAcrilico(){
+
+let activo = document.getElementById("activarAcrilico").checked;
+
+document.getElementById("tipoAcrilico").disabled = !activo;
+document.getElementById("tamanoAcrilico").disabled = !activo;
+
+actualizarAcrilico();
 
 }
-
-const preciosEfectos = {
-
-espejo:30,
-aurora:25,
-azucar:20,
-unicornio:30,
-gato2d:25,
-gato9d:35,
-sueter:20,
-terciopelo:25,
-cocodrilo:30,
-glow:35,
-marmol:35,
-mano:60
-
-}
-
-let counts={}
-
-Object.keys(preciosEfectos).forEach(e=>counts[e]=0)
-
-const totalElement=document.getElementById("total")
 
 function actualizarAcrilico(){
 
-let tipo=document.getElementById("tipoAcrilico").value
-let tamano=document.getElementById("tamanoAcrilico").value
+let activo = document.getElementById("activarAcrilico").checked;
 
-let precio=preciosAcrilico[tipo][tamano]
+if(!activo){
+document.getElementById("precioAcrilico").innerText="$0";
+calcularTotal();
+return;
+}
 
-document.getElementById("precioAcrilico").textContent="$"+precio
+let tipo=document.getElementById("tipoAcrilico").value;
+let tamano=document.getElementById("tamanoAcrilico").value;
 
-calculateTotal()
+let precio=0;
+
+if(tipo==="tip"){
+precio=preciosTip[tamano];
+}else{
+precio=preciosEscultura[tamano];
+}
+
+document.getElementById("precioAcrilico").innerText="$"+precio;
+
+calcularTotal();
 
 }
+
+let preciosEfectos={
+espejo:20,
+aurora:20,
+azucar:20,
+unicornio:20,
+gato2d:20,
+gato9d:20,
+sueter:20,
+terciopelo:20,
+cocodrilo:20,
+glow:20,
+marmol:20,
+mano:50
+};
+
+let counts={};
 
 function increase(tipo){
 
-if(counts[tipo]<10){
+if(!counts[tipo]) counts[tipo]=0;
 
-counts[tipo]++
-update(tipo)
+counts[tipo]++;
 
-}
+document.getElementById(tipo+"Count").innerText=counts[tipo];
+
+document.getElementById(tipo+"Price").innerText="$"+(counts[tipo]*preciosEfectos[tipo]);
+
+calcularTotal();
 
 }
 
 function decrease(tipo){
 
-if(counts[tipo]>0){
+if(!counts[tipo]) counts[tipo]=0;
 
-counts[tipo]--
-update(tipo)
+if(counts[tipo]>0) counts[tipo]--;
 
-}
+document.getElementById(tipo+"Count").innerText=counts[tipo];
 
-}
+document.getElementById(tipo+"Price").innerText="$"+(counts[tipo]*preciosEfectos[tipo]);
 
-function update(tipo){
-
-document.getElementById(tipo+"Count").textContent=counts[tipo]
-
-let subtotal=counts[tipo]*preciosEfectos[tipo]
-
-document.getElementById(tipo+"Price").textContent="$"+subtotal
-
-calculateTotal()
+calcularTotal();
 
 }
 
-function calculateTotal(){
+document.querySelectorAll('input[type="checkbox"][data-price]').forEach(cb=>{
 
-let total=0
+cb.addEventListener("change",calcularTotal);
 
-let tipo=document.getElementById("tipoAcrilico").value
-let tamano=document.getElementById("tamanoAcrilico").value
+});
 
-total+=preciosAcrilico[tipo][tamano]
+function calcularTotal(){
 
-Object.keys(preciosEfectos).forEach(e=>{
+let total=0;
+let count=0;
 
-total+=counts[e]*preciosEfectos[e]
+if(document.getElementById("activarAcrilico").checked){
 
-})
+let precio=document.getElementById("precioAcrilico").innerText.replace("$","");
 
-document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+total+=parseInt(precio);
 
-if(box.checked){
-
-total+=Number(box.dataset.price)
+count++;
 
 }
 
-})
+document.querySelectorAll('input[type="checkbox"][data-price]').forEach(cb=>{
 
-totalElement.textContent="$"+total
+if(cb.checked){
+
+total+=parseInt(cb.dataset.price);
+
+count++;
 
 }
 
-document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+});
 
-box.addEventListener("change",calculateTotal)
+for(let key in counts){
 
-})
+total+=counts[key]*preciosEfectos[key];
+
+if(counts[key]>0) count++;
+
+}
+
+document.getElementById("total").innerText="$"+total;
+
+document.getElementById("count").innerText=count+" servicios seleccionados";
+
+}
 
 function resetServices(){
 
-Object.keys(preciosEfectos).forEach(e=>{
-
-counts[e]=0
-document.getElementById(e+"Count").textContent=0
-document.getElementById(e+"Price").textContent="$0"
-
-})
-
-document.querySelectorAll("input[type=checkbox]").forEach(box=>box.checked=false)
-
-totalElement.textContent="$0"
+location.reload();
 
 }

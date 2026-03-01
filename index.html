@@ -30,9 +30,17 @@
 
 <div class="service">
 
+<input type="checkbox" id="activarAcrilico" onchange="toggleAcrilico()">
+<span>Activar servicio</span>
+
+</div>
+
+
+<div class="service">
+
 <span>Tipo de aplicación</span>
 
-<select id="tipoAcrilico" onchange="actualizarAcrilico()">
+<select id="tipoAcrilico" onchange="actualizarAcrilico()" disabled>
 <option value="tip">Tip</option>
 <option value="escultura">Escultura</option>
 </select>
@@ -44,7 +52,7 @@
 
 <span>Tamaño</span>
 
-<select id="tamanoAcrilico" onchange="actualizarAcrilico()">
+<select id="tamanoAcrilico" onchange="actualizarAcrilico()" disabled>
 
 <option value="1">#1</option>
 <option value="2">#2</option>
@@ -68,7 +76,7 @@
 <div class="service">
 
 <span>Precio</span>
-<span class="price" id="precioAcrilico">$200</span>
+<span class="price" id="precioAcrilico">$0</span>
 
 </div>
 
