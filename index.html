@@ -22,22 +22,69 @@
 
 
 <div class="card-title">
-💅 Servicios Principales 💅
+💅 Uñas Acrílicas 💅
 </div>
 
 
 <div class="card">
 
 <div class="service">
+
+<span>Tipo de aplicación</span>
+
+<select id="tipoAcrilico" onchange="actualizarAcrilico()">
+<option value="tip">Tip</option>
+<option value="escultura">Escultura</option>
+</select>
+
+</div>
+
+
+<div class="service">
+
+<span>Tamaño</span>
+
+<select id="tamanoAcrilico" onchange="actualizarAcrilico()">
+
+<option value="1">#1</option>
+<option value="2">#2</option>
+<option value="3">#3</option>
+<option value="4">#4</option>
+<option value="5">#5</option>
+<option value="6">#6</option>
+<option value="7">#7</option>
+<option value="8">#8</option>
+<option value="9">#9</option>
+<option value="10">#10</option>
+<option value="11">#11</option>
+<option value="12">#12</option>
+<option value="13">#13</option>
+
+</select>
+
+</div>
+
+
+<div class="service">
+
+<span>Precio</span>
+<span class="price" id="precioAcrilico">$200</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Otros servicios</h2>
+
+<div class="service">
 <input type="checkbox" data-price="280">
 <span>🧴 Aplicación de Rubber y Baño de Acrílico</span>
 <span class="price">$280</span>
 </div>
-
-<p class="info">
-Incluye 1 color, glitter o color extra en 2 uñas
-</p>
-
 
 <div class="service">
 <input type="checkbox" data-price="150">
@@ -55,7 +102,6 @@ Incluye 1 color, glitter o color extra en 2 uñas
 
 
 <div class="service">
-
 <span>🪞 Espejo</span>
 
 <div class="counter">
@@ -65,12 +111,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="espejoPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🌈 Aurora</span>
 
 <div class="counter">
@@ -80,12 +124,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="auroraPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🍬 Azúcar</span>
 
 <div class="counter">
@@ -95,12 +137,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="azucarPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🦄 Unicornio</span>
 
 <div class="counter">
@@ -110,12 +150,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="unicornioPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🐱 Ojo de gato 2D</span>
 
 <div class="counter">
@@ -125,12 +163,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="gato2dPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🐱 Ojo de gato 9D</span>
 
 <div class="counter">
@@ -140,12 +176,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="gato9dPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🧶 Suéter</span>
 
 <div class="counter">
@@ -155,12 +189,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="sueterPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🪶 Terciopelo</span>
 
 <div class="counter">
@@ -170,12 +202,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="terciopeloPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🐊 Cocodrilo</span>
 
 <div class="counter">
@@ -185,12 +215,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="cocodriloPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>✨ Glow</span>
 
 <div class="counter">
@@ -200,12 +228,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="glowPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🪨 Mármol</span>
 
 <div class="counter">
@@ -215,12 +241,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="marmolPrice">$0</span>
-
 </div>
 
 
 <div class="service">
-
 <span>🎨 Mano alzada (dependiendo el diseño)</span>
 
 <div class="counter">
@@ -230,12 +254,10 @@ Incluye 1 color, glitter o color extra en 2 uñas
 </div>
 
 <span class="price" id="manoPrice">$0</span>
-
 </div>
 
 
 </div>
-
 
 
 <div class="total-box">
