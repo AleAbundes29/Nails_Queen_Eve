@@ -1,5 +1,3 @@
-let total = 0;
-
 const preciosTip = {
 1:200,2:250,3:300,4:350,5:400,6:450,7:500,8:550,9:600,10:650,11:700,12:750,13:800
 };
@@ -16,7 +14,6 @@ document.getElementById("tipoAcrilico").disabled = !activo;
 document.getElementById("tamanoAcrilico").disabled = !activo;
 
 actualizarAcrilico();
-
 }
 
 function actualizarAcrilico(){
@@ -32,33 +29,33 @@ return;
 let tipo=document.getElementById("tipoAcrilico").value;
 let tamano=document.getElementById("tamanoAcrilico").value;
 
-let precio=0;
-
-if(tipo==="tip"){
-precio=preciosTip[tamano];
-}else{
-precio=preciosEscultura[tamano];
-}
+let precio= tipo==="tip" ? preciosTip[tamano] : preciosEscultura[tamano];
 
 document.getElementById("precioAcrilico").innerText="$"+precio;
 
 calcularTotal();
-
 }
 
 let preciosEfectos={
-espejo:20,
-aurora:20,
+
+espejo:30,
+aurora:25,
 azucar:20,
-unicornio:20,
-gato2d:20,
-gato9d:20,
+unicornio:30,
+gato2d:25,
+
+french:10,
+gelcolor:10,
+relieve:20,
+tresd:30,
+
 sueter:20,
-terciopelo:20,
-cocodrilo:20,
-glow:20,
-marmol:20,
-mano:50
+terciopelo:25,
+cocodrilo:30,
+cristales:35,
+marmol:35,
+mano:60
+
 };
 
 let counts={};
@@ -74,7 +71,6 @@ document.getElementById(tipo+"Count").innerText=counts[tipo];
 document.getElementById(tipo+"Price").innerText="$"+(counts[tipo]*preciosEfectos[tipo]);
 
 calcularTotal();
-
 }
 
 function decrease(tipo){
@@ -88,13 +84,10 @@ document.getElementById(tipo+"Count").innerText=counts[tipo];
 document.getElementById(tipo+"Price").innerText="$"+(counts[tipo]*preciosEfectos[tipo]);
 
 calcularTotal();
-
 }
 
 document.querySelectorAll('input[type="checkbox"][data-price]').forEach(cb=>{
-
 cb.addEventListener("change",calcularTotal);
-
 });
 
 function calcularTotal(){
@@ -115,11 +108,8 @@ count++;
 document.querySelectorAll('input[type="checkbox"][data-price]').forEach(cb=>{
 
 if(cb.checked){
-
 total+=parseInt(cb.dataset.price);
-
 count++;
-
 }
 
 });
@@ -135,11 +125,8 @@ if(counts[key]>0) count++;
 document.getElementById("total").innerText="$"+total;
 
 document.getElementById("count").innerText=count+" servicios seleccionados";
-
 }
 
 function resetServices(){
-
 location.reload();
-
 }
