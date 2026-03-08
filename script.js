@@ -52,7 +52,7 @@ tresd:30,
 sueter:20,
 terciopelo:25,
 cocodrilo:30,
-cristales:35,
+cristales:20,
 marmol:35,
 mano:60
 
